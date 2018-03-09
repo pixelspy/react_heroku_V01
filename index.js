@@ -12,7 +12,9 @@ const resolvers = require('./server/resolvers');
 
 app.use(cors());
 
-mongoose.connect('mongodb://pixelspy:soleilmahana10@ds157528.mlab.com:57528/herokutest');
+mongoose.connect(
+  process.env.DATABASE_URL
+  );
 
 const execSchema = makeExecutableSchema({
   typeDefs: schema,
